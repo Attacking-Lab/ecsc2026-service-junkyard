@@ -1,0 +1,7 @@
+<div class="text-center">
+  <div class="mb-3">
+    <app-img-with-rect [url]="backend.downloadUrl(id, meta)" color="light" (imagesize)="updateDimensions($event)" (rect)="updateRect($event)"></app-img-with-rect>
+  </div>
+  <pre>top = {{rect.y}}  right = {{dimensions.w - rect.x - rect.w}}  bottom = {{dimensions.h - rect.y - rect.h}}  left = {{rect.x}}</pre>
+  <button type="button" (click)="run()" class="btn btn-primary btn-lg">Apply Slicer</button>
+</div>

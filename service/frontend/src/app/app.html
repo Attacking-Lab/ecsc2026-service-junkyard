@@ -1,0 +1,25 @@
+<div class="position-fixed top-0 end-0 m-3" style="z-index: 9999; min-width: 30%">
+  @for (alert of backend.messages(); track $index) {
+    <div [class]="'alert alert-'+ alert.kind +' alert-dismissible fade show mb-2'" role="alert">
+      {{ alert.msg }}
+      <button type="button" class="btn-close" (click)="removeMessage($index)" aria-label="Close"></button>
+    </div>
+  }
+</div>
+
+<div class="bg-primary mb-5 py-2 menu">
+  <div class="container">
+    <a [routerLink]="'/'" class="display-6">
+      The Junkyard
+    </a>
+    <span class="flex-grow-1"></span>
+    @if (backend.currentUser()) {
+      <span class="static-text">👤 {{backend.currentUser()}}</span>
+      <a (click)="logout()" class="href">Logout</a>
+    }
+  </div>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

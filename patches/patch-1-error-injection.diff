@@ -1,0 +1,30 @@
+diff --git a/service/language-tool/source/app.d b/service/language-tool/source/app.d
+index 8886f1a..dadafde 100644
+--- a/service/language-tool/source/app.d
++++ b/service/language-tool/source/app.d
+@@ -128,7 +128,8 @@ int main(string[] args)
+     }
+     catch (Exception e)
+     {
+-        writeln("error: ", e.msg);
++        // FIX: everything on stdout is parsed by the CGI server
++        stderr.writeln("error: ", e.msg);
+         return 1;
+     }
+ 
+diff --git a/service/spellchecker/main.go b/service/spellchecker/main.go
+index 8dee8cb..e360656 100644
+--- a/service/spellchecker/main.go
++++ b/service/spellchecker/main.go
+@@ -52,6 +52,11 @@ func genericHandler(w http.ResponseWriter, r *http.Request) (string, map[string]
+ 		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+ 		return "", nil
+ 	}
++    // FIX: json.Decoder allows data past the first valid JSON object, check there's no junk at the end.
++    if decoder.More() {
++		http.Error(w, "Additional data after JSON response", http.StatusBadRequest)
++		return "", nil
++	}
+ 
+ 	return filename, userdata
+ }

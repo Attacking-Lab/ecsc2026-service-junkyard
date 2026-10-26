@@ -1,0 +1,25 @@
+a.href {
+  cursor: pointer;
+}
+
+.menu {
+  > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: .5rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .static-text {
+    color: #ccd;
+  }
+}

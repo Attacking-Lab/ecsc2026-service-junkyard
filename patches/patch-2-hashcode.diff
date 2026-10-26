@@ -1,0 +1,13 @@
+diff --git a/service/converter/converter/src/main/java/com/junkyard/app/User.java b/service/converter/converter/src/main/java/com/junkyard/app/User.java
+index d87e491..a9baf4c 100644
+--- a/service/converter/converter/src/main/java/com/junkyard/app/User.java
++++ b/service/converter/converter/src/main/java/com/junkyard/app/User.java
+@@ -21,6 +21,7 @@ public class User {
+     public boolean equals(Object o) {
+         if (this == o) return true;
+         if (!(o instanceof User other)) return false;
+-        return Objects.hash(this.firstName, this.lastName) == Objects.hash(other.firstName, other.lastName);
++        // FIX: write proper equals()
++        return this.firstName.equals(other.firstName) && this.lastName.equals(other.lastName) && this.userName.equals(other.userName);
+     }
+ }

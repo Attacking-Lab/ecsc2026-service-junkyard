@@ -1,0 +1,89 @@
+---
+
+services:
+  redis-db:
+    image: redis:8
+    restart: unless-stopped
+    volumes:
+      - ./data/redis:/data
+
+  gateway:
+    build: gateway/
+    restart: unless-stopped
+    ports:
+      - "${SERVICE_PORT:-9300}:9300"
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./data/files:/data/files
+      - ./data/secrets:/data/secrets
+    environment:
+      - BASE_DIR=/data
+      - REDIS_HOST=redis-db
+      - USE_DOCKER_NETWORK=1
+
+  inspector:
+    build: inspector/
+    restart: unless-stopped
+    #ports:
+    #  - "9301:9301"
+    volumes:
+      - ./data/files:/data/files:ro
+    environment:
+      - FILE_DIR=/data/files
+
+  annotator:
+    build: annotator/
+    restart: unless-stopped
+    #ports:
+    #  - "9302:9302"
+    volumes:
+      - ./data/files:/data/files
+    environment:
+      - FILE_DIR=/data/files
+
+  spellchecker:
+    build: spellchecker/
+    restart: unless-stopped
+    #ports:
+    #  - "9303:9303"
+    volumes:
+      - ./data/files:/data/files:ro
+      - ./language-tool/languages:/languages:ro
+    environment:
+      - FILE_DIR=/data/files
+      - LANG_DIR=/languages
+
+  language-tool:
+    build: language-tool/
+    restart: unless-stopped
+    #ports:
+    #  - "9304:80"
+    volumes:
+      - ./data/files:/data/files:ro
+      - ./language-tool/languages:/languages:ro
+    environment:
+      - FILE_DIR=/data/files
+      - LANG_DIR=/languages
+  
+  converter:
+    build: converter/
+    restart: unless-stopped
+    #ports:
+    #  - "9305:9305"
+    volumes:
+      - ./data/ocrdata:/data/ocrdata:rw
+    environment:
+      - FILE_DIR=/data/ocrdata
+
+  cleanup:
+    image: debian:trixie
+    restart: unless-stopped
+    command: [ "/cleanup-old-files.sh" ]
+    volumes:
+      - ./cleanup-old-files.sh:/cleanup-old-files.sh:ro
+      - ./data/files:/data/files
+    stop_grace_period: "1s"
+

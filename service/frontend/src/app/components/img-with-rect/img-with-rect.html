@@ -1,0 +1,41 @@
+<div class="mousecontainer"
+     (mouseup)="endDrag($event)"
+     (mousemove)="drag($event)"
+     (mouseleave)="endDrag($event)">
+
+  <div class="cropcontainer" [style.width.px]="imageSize().w" [style.height.px]="imageSize().h">
+    <img [src]="url" (load)="onImageLoad($event)">
+
+    <div [class]="'rect ' + color"
+         [style.left.px]="rect.x - 1"
+         [style.top.px]="rect.y - 1"
+         [style.width.px]="rect.w + 2"
+         [style.height.px]="rect.h + 2"
+    ></div>
+
+    <div class="point top left"
+         [style.left.px]="rect.x"
+         [style.top.px]="rect.y"
+         (mousedown)="startDrag($event, 'x', 'y')"
+         [class.active]="dragX == 'x' && dragY == 'y'"
+    ></div>
+    <div class="point bottom left"
+         [style.left.px]="rect.x"
+         [style.top.px]="rect.y + rect.h"
+         (mousedown)="startDrag($event, 'x', 'h')"
+         [class.active]="dragX == 'x' && dragY == 'h'"
+    ></div>
+    <div class="point top right"
+         [style.left.px]="rect.x + rect.w"
+         [style.top.px]="rect.y"
+         (mousedown)="startDrag($event, 'w', 'y')"
+         [class.active]="dragX == 'w' && dragY == 'y'"
+    ></div>
+    <div class="point bottom right"
+         [style.left.px]="rect.x + rect.w"
+         [style.top.px]="rect.y + rect.h"
+         (mousedown)="startDrag($event, 'w', 'h')"
+         [class.active]="dragX == 'w' && dragY == 'h'"
+    ></div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+@if (response$ | async; as response) {
+  <h1 class="text-center mb-5">Welcome, {{ response.first_name }} {{response.last_name}}</h1>
+
+
+  <div class="row mb-5 justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Find some junk to recycle!</h3>
+          <form class="input-group" (submit)="lookup(junkIdentifier)">
+            <input
+              type="text"
+              name="junkIdentifier"
+              class="form-control"
+              placeholder="Enter junk identifier"
+              aria-label="Junk identifier"
+              [(ngModel)]="junkIdentifier">
+            <button class="btn btn-primary" type="submit">
+              Lookup
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <app-my-junk [files]="response.files"></app-my-junk>
+
+
+} @else {
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+    <div class="spinner-border text-primary" role="status" style="width: 4rem; height: 4rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+}

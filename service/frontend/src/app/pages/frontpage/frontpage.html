@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Welcome to the Junkyard!</h3>
+
+        <ul class="nav nav-tabs mb-3" id="authTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link" id="login-tab" (click)="tab = 'login'" type="button"
+                    role="tab" aria-controls="login" [class.active]="tab == 'login'">
+              Login
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="register-tab" (click)="tab = 'register'" type="button"
+                    role="tab" aria-controls="register" [class.active]="tab == 'register'">
+              Register
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="authTabsContent">
+          <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab"
+               [class.active]="tab == 'login'" [class.show]="tab == 'login'">
+            <form #loginForm="ngForm" (submit)="login()">
+              <div class="mb-3">
+                <label for="login-username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="login-username"
+                  name="username"
+                  [(ngModel)]="username"
+                  required
+                  placeholder="Enter username">
+              </div>
+
+              <div class="mb-3">
+                <label for="login-password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="login-password"
+                  name="password"
+                  [(ngModel)]="password"
+                  required
+                  placeholder="Enter password">
+              </div>
+
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!loginForm.valid">
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab"
+               [class.active]="tab == 'register'" [class.show]="tab == 'register'">
+            <form #registerForm="ngForm" (submit)="register()">
+              <div class="mb-3">
+                <label for="register-username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-username"
+                  name="username"
+                  [(ngModel)]="username"
+                  required
+                  placeholder="Enter username">
+              </div>
+
+              <div class="mb-3">
+                <label for="register-password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-password"
+                  name="password"
+                  [(ngModel)]="password"
+                  required
+                  placeholder="Enter password">
+              </div>
+
+              <div class="mb-3">
+                <label for="register-firstname" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-firstname"
+                  name="firstName"
+                  [(ngModel)]="firstName"
+                  required
+                  placeholder="Enter first name">
+              </div>
+
+              <div class="mb-3">
+                <label for="register-lastname" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-lastname"
+                  name="lastName"
+                  [(ngModel)]="lastName"
+                  required
+                  placeholder="Enter last name">
+              </div>
+
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!registerForm.valid">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+diff --git a/service/annotator/tools.c b/service/annotator/tools.c
+index bfe8dda..7141da2 100644
+--- a/service/annotator/tools.c
++++ b/service/annotator/tools.c
+@@ -66,7 +66,8 @@ static int read_owned_file(struct ToolParams* params, Buffer* meta_buffer) {
+     MetadataEntry* entry = NULL;
+     while ((entry = next_metadata_entry(meta_buffer, entry))) {
+         if (entry->type == OWNER) {
+-            if (strncmp(params->username, entry->owner.username, entry->owner.len) != 0) {
++            // FIX: strncmp stops comparing after N bytes, username might be longer
++            if (strncmp(params->username, entry->owner.username, entry->owner.len) != 0 || strlen(params->username) != entry->owner.len) {
+                 free_buffer(meta_buffer);
+                 return 3;
+             }
+diff --git a/service/inspector/src/ops.jl b/service/inspector/src/ops.jl
+index 9159a38..35a6a7e 100644
+--- a/service/inspector/src/ops.jl
++++ b/service/inspector/src/ops.jl
+@@ -2,7 +2,8 @@ include("bitmaps.jl")
+ include("meta.jl")
+ 
+ @inline function idx_xy(bmp::Bitmap, x::Int, y::Int, channel::Int)::Int64
+-    return idx(bmp, x, bmp.header.height - y, channel)
++    # FIX: off by one, y=0 was out of bounds
++    return idx(bmp, x, bmp.header.height - y - 1, channel)
+ end
+ 
+ 

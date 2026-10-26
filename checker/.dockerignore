@@ -1,0 +1,13 @@
+Dockerfile
+docker-compose.yml
+.dockerignore
+.git
+stonksexchange-checker-db/
+venv/
+.venv/
+__pycache__/
+junkyard-checker-db/
+spellchecker/*.so
+spellchecker/*.h
+spellchecker/*.idx
+spellchecker/*.idx.tmp

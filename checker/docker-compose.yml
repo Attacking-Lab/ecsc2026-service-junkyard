@@ -1,0 +1,35 @@
+services:
+  junkyard-checker:
+    build:
+      context: .
+      target: checked
+    restart: unless-stopped
+    ports:
+      - ${CHECKER_PORT:-8000}:8000
+    volumes:
+      - "../checker-debug-data:/debug"
+    environment:
+      - SERVICE_PORT=${SERVICE_PORT:-9300}
+      - MONGO_ENABLED=1
+      - MONGO_HOST=junkyard-checker-db
+      - MONGO_PORT=27017
+      - MONGO_USER=junkyard_checker
+      - MONGO_PASSWORD=junkyard_checker
+      - OTEL_EXPORTER_OTLP_HEADERS_AUTHORIZATION=${OTEL_EXPORTER_OTLP_HEADERS_AUTHORIZATION:-}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+      - OTEL_EXPORTER_DISABLE_BATCH=${OTEL_EXPORTER_DISABLE_BATCH:-}
+      - ENOCHECKER_HAPROXY_MODE=${ENOCHECKER_HAPROXY_MODE:-0}
+      - CHECKER_WORKERS=6
+
+  junkyard-checker-db:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - junkyard-checker-db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: junkyard_checker
+      MONGO_INITDB_ROOT_PASSWORD: junkyard_checker
+
+volumes:
+  # go to hell
+  junkyard-checker-db:

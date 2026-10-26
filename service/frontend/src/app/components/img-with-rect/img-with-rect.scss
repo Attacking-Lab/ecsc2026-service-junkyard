@@ -1,0 +1,59 @@
+.mousecontainer {
+  min-width: 100%;
+  padding: .5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.cropcontainer {
+  position: relative;
+  box-sizing: content-box;
+
+  .rect {
+    position: absolute;
+    border: 2px solid black;
+    z-index: 20;
+
+    &.dark {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.light {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .point {
+    position: absolute;
+    width: .5rem;
+    height: .5rem;
+    margin-left: -.25rem;
+    margin-top: -.25rem;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 30;
+    cursor: pointer;
+
+    &.active {
+      background-color: #cc8000;
+    }
+
+    &.top.left {
+      cursor: nwse-resize;
+    }
+    &.top.right {
+      cursor: nesw-resize;
+    }
+    &.bottom.left {
+      cursor: nesw-resize;
+    }
+    &.bottom.right {
+      cursor: nwse-resize;
+    }
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}

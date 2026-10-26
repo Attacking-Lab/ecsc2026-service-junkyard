@@ -1,0 +1,17 @@
+@if (content()) {
+  <pre class="border rounded p-3 mb-3 mw-100 bg-light text-dark font-monospace shadow-sm">{{ content() }}</pre>
+}
+
+<div class="text-center">
+  <div class="mb-3 form-floating mx-auto" style="width: 300px;">
+    <select id="languageSelect" class="form-select" [(ngModel)]="selectedLanguage">
+      @for (lang of languages; track lang[0]) {
+        <option [value]="lang[0]">{{ lang[1] }}</option>
+      }
+    </select>
+    <label for="languageSelect">Select Language</label>
+  </div>
+
+  <button type="button" (click)="run()" class="btn btn-primary btn-lg">Run Chromatograph</button>
+</div>
+

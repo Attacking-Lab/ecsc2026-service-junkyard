@@ -1,0 +1,12 @@
+name = "Inspector"
+uuid = "26b09821-a10f-4b1b-940e-a40d5c224e42"
+version = "0.1.0"
+authors = []
+
+[deps]
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+StructIO = "53d494c1-5632-5724-8f4c-31dff12d585f"
+
+[compat]
+HTTP = "2.9.0"
+StructIO = "0.3.1"

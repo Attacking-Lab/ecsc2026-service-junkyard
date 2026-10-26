@@ -1,0 +1,7 @@
+<div class="text-center">
+  <div class="mb-3">
+    <app-img-with-rect [url]="backend.downloadUrl(id, meta)" color="dark" (rect)="updateRect($event)"></app-img-with-rect>
+  </div>
+  <pre>x = {{rect.x}}  y = {{rect.y}}  w = {{rect.w}}  h = {{rect.h}}</pre>
+  <button type="button" (click)="run()" class="btn btn-primary btn-lg">Apply Redactor</button>
+</div>

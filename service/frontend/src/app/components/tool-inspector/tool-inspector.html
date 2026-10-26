@@ -1,0 +1,10 @@
+<div class="text-center">
+  @if (blobUrl()) {
+    <div class="border rounded p-1 mb-2 mw-100">
+      <img [src]="blobUrl()" class="rounded mw-100"/>
+    </div>
+  }
+
+  <button type="button" (click)="run()" class="btn btn-primary btn-lg">Use Scanner</button>
+</div>
+

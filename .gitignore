@@ -1,0 +1,12 @@
+.idea
+*.iml
+__pycache__
+data/
+*.class
+*.out
+target
+cmake_build_debug
+service/gateway/static
+checker/spellchecker/libspellchecker.so
+checker/spellchecker/libspellchecker.h
+checker/spellchecker/dictionaries.idx

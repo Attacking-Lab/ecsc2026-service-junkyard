@@ -1,0 +1,12 @@
+@if (content()) {
+  <pre class="border rounded p-3 mb-3 mw-100 bg-light text-dark font-monospace shadow-sm">{{ content() }}</pre>
+}
+
+<div class="text-center">
+  @if (content()) {
+    <button type="button" (click)="run()" class="btn btn-outline-primary btn-lg mx-1">Apply Converter</button>
+    <button type="button" (click)="save()" class="btn btn-primary btn-lg mx-1">Save Conversion Result</button>
+  } @else {
+    <button type="button" (click)="run()" class="btn btn-primary btn-lg">Apply Converter</button>
+  }
+</div>

@@ -1,0 +1,44 @@
+<div class="row mb-5 justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card shadow">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Some junk you tossed here</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        @for (junk of files; track junk) {
+          <li class="list-group-item">
+            <a [routerLink]="['/junk', junk]">{{ junk }}</a>
+          </li>
+        } @empty {
+          <li class="list-group-item text-muted">No junk found</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mb-5 justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card shadow">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Throw away your junk!</h3>
+        <input
+          type="file"
+          name="file"
+          class="form-control"
+          placeholder="Drop a file to throw away"
+          aria-label="Drop a file to throw away"
+          (drop)="onFileDrop($event)"
+          (change)="onFileSelect($event)"
+        >
+        @if (uploads > 0) {
+          <p class="text-center mt-3 text-muted">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Uploading {{ uploads }} file(s)...
+          </p>
+        }
+      </div>
+    </div>
+  </div>
+</div>

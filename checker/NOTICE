@@ -1,0 +1,74 @@
+Junkyard
+Copyright (c) 2026 Markus Bauer and Simeon Hoffmann
+
+This product includes third-party software and assets that are distributed
+under their own licenses. The components are listed below. License identifiers
+follow the SPDX format (https://spdx.org/licenses/).
+
+Only direct dependencies are listed. Transitive dependencies are pulled in by
+the respective package managers and remain under their own licenses.
+
+
+--------------------------------------------------------------------------------
+Python dependencies (pyproject.toml, versions from uv.lock)
+--------------------------------------------------------------------------------
+
+enochecker3 0.22.3
+  License:   MIT
+  Copyright: (c) 2025 Attacking-Lab, (c) 2021 Lucas Druschke
+  Source:    https://github.com/attacking-lab/enochecker3
+
+enochecker-core 0.22.0
+  License:   MIT
+  Copyright: (c) 2025 Attacking-Lab, (c) 2021 Lucas Druschke
+  Source:    https://github.com/attacking-lab/enochecker-core
+
+httpx 0.28.1
+  License:   BSD-3-Clause
+  Copyright: (c) Encode OSS Ltd.
+  Source:    https://github.com/encode/httpx
+
+numpy 2.5.3
+  License:   BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0
+  Copyright: (c) 2005-2025, NumPy Developers
+  Source:    https://github.com/numpy/numpy
+
+pillow 12.3.0
+  License:   MIT-CMU
+  Copyright: (c) 1997-2011 by Secret Labs AB, (c) 1995-2011 by Fredrik Lundh
+             and contributors, (c) 2010 by Jeffrey A. Clark and contributors
+  Source:    https://github.com/python-pillow/Pillow
+
+z3-solver 5.1.0.0
+  License:   MIT
+  Copyright: (c) Microsoft Corporation
+  Source:    https://github.com/Z3Prover/z3
+
+
+--------------------------------------------------------------------------------
+Fonts (res/Inconsolata-Regular.ttf)
+--------------------------------------------------------------------------------
+
+Inconsolata Regular 3.000
+  License:   OFL-1.1 (SIL Open Font License, Version 1.1)
+  Copyright: 2006 The Inconsolata Project Authors
+             (Raph Levien, Cyreal, Google)
+  Source:    https://github.com/cyrealtype/Inconsolata
+  License:   https://openfontlicense.org
+
+The glyph bitmaps are derived from Inconsolata and are covered by the same license.
+
+
+================================================================================
+Full license texts
+================================================================================
+
+The full texts of the licenses referenced above are available at:
+
+  0BSD          https://spdx.org/licenses/0BSD.html
+  BSD-3-Clause  https://spdx.org/licenses/BSD-3-Clause.html
+  CC0-1.0       https://spdx.org/licenses/CC0-1.0.html
+  MIT           https://spdx.org/licenses/MIT.html
+  MIT-CMU       https://spdx.org/licenses/MIT-CMU.html
+  OFL-1.1       https://spdx.org/licenses/OFL-1.1.html
+  Zlib          https://spdx.org/licenses/Zlib.html

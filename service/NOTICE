@@ -1,0 +1,163 @@
+Junkyard
+Copyright (c) 2026 Markus Bauer and Simeon Hoffmann
+
+This product includes third-party software and assets that are distributed
+under their own licenses. The components are listed below. License identifiers
+follow the SPDX format
+(https://spdx.org/licenses/).
+
+Only direct dependencies are listed. Transitive dependencies are pulled in by
+the respective package managers and remain under their own licenses.
+
+
+================================================================================
+service/frontend (service/frontend/package.json, versions from package-lock.json)
+================================================================================
+
+@angular/common 22.1.6
+@angular/compiler 22.1.6
+@angular/core 22.1.6
+@angular/forms 22.1.6
+@angular/platform-browser 22.1.6
+@angular/router 22.1.6
+  License:   MIT
+  Copyright: (c) 2010-2026 Google LLC
+  Source:    https://github.com/angular/angular
+
+bootstrap 5.3.8
+  License:   MIT
+  Copyright: (c) 2011-2025 The Bootstrap Authors
+  Source:    https://github.com/twbs/bootstrap
+
+rxjs 7.8.2
+  License:   Apache-2.0
+  Copyright: (c) 2015-2018 Google, Inc., Netflix, Inc., Microsoft Corp.
+             and contributors
+  Source:    https://github.com/ReactiveX/rxjs
+
+tslib 2.8.1
+  License:   0BSD
+  Copyright: (c) Microsoft Corporation
+  Source:    https://github.com/microsoft/tslib
+
+
+================================================================================
+service/gateway (service/gateway/requirements.txt)
+================================================================================
+
+fastapi[standard] (unpinned)
+  License:   MIT
+  Copyright: (c) 2018 Sebastián Ramírez
+  Source:    https://github.com/fastapi/fastapi
+
+uvicorn (unpinned)
+  License:   BSD-3-Clause
+  Copyright: (c) 2017-present, Encode OSS Ltd.
+  Source:    https://github.com/encode/uvicorn
+
+httpx (unpinned)
+  License:   BSD-3-Clause
+  Copyright: (c) Encode OSS Ltd.
+  Source:    https://github.com/encode/httpx
+
+redis (redis-py) (unpinned)
+  License:   MIT
+  Copyright: (c) 2022-2023, Redis, inc.
+  Source:    https://github.com/redis/redis-py
+
+python-multipart (unpinned)
+  License:   Apache-2.0
+  Copyright: (c) 2012, Andrew Dunham
+  Source:    https://github.com/Kludex/python-multipart
+
+
+================================================================================
+service/converter (service/converter/converter/pom.xml)
+================================================================================
+
+tools.jackson.core:jackson-databind 3.2.2
+  License:   Apache-2.0
+  Copyright: (c) FasterXML, LLC
+  Source:    https://github.com/FasterXML/jackson-databind
+
+org.nd4j:nd4j-native-platform 1.0.0-M2.1
+org.nd4j:nd4j-native 1.0.0-M2.1 (classifier linux-x86_64-avx2)
+org.datavec:datavec-data-image 1.0.0-M2.1
+  License:   Apache-2.0
+  Copyright: (c) Eclipse Deeplearning4j contributors
+  Source:    https://github.com/deeplearning4j/deeplearning4j
+
+org.slf4j:slf4j-simple 1.7.36
+  License:   MIT
+  Copyright: (c) 2004-2022 QOS.ch Sarl (Switzerland)
+  Source:    https://github.com/qos-ch/slf4j
+
+
+================================================================================
+service/inspector (service/inspector/Project.toml, versions from Manifest.toml)
+================================================================================
+
+HTTP.jl 1.11.0
+  License:   MIT
+  Copyright: (c) 2016 Jacob Quinn, JuliaWeb contributors
+  Source:    https://github.com/JuliaWeb/HTTP.jl
+
+StructIO.jl 0.3.1
+  License:   MIT
+  Copyright: (c) 2016 Elliot Saba, Keno Fischer
+  Source:    https://github.com/Keno/StructIO.jl
+
+
+================================================================================
+service/annotator (system libraries linked via service/annotator/CMakeLists.txt)
+================================================================================
+
+libevent (Debian package libevent-dev, unpinned)
+  License:   BSD-3-Clause
+  Copyright: (c) 2000-2007 Niels Provos, (c) 2007-2012 Niels Provos and
+             Nick Mathewson
+  Source:    https://github.com/libevent/libevent
+
+libuuid (util-linux, Debian package uuid-dev, unpinned)
+  License:   BSD-3-Clause
+  Copyright: (c) 1996, 1997, 1998, 1999 Theodore Ts'o
+  Source:    https://github.com/util-linux/util-linux
+
+
+================================================================================
+service runtime components (service/docker-compose.yml, Dockerfiles)
+================================================================================
+
+Redis (Docker image "redis", unpinned)
+  License:   AGPL-3.0-only OR RSALv2 OR SSPL-1.0 (Redis 8.0 and later)
+  Copyright: (c) Redis Ltd.
+  Source:    https://github.com/redis/redis
+
+Apache HTTP Server (Docker image "httpd:trixie", used by language-tool)
+  License:   Apache-2.0
+  Copyright: (c) The Apache Software Foundation
+  Source:    https://github.com/apache/httpd
+
+
+================================================================================
+language data
+================================================================================
+
+The language files are extracted from the “Corpora Collection” by Uni Leipzig.
+The data is under CC BY 4.0 license. © 1998 - 2026 Wortschatz Leipzig.
+https://wortschatz.uni-leipzig.de
+
+
+================================================================================
+Full license texts
+================================================================================
+
+The full texts of the licenses referenced above are available at:
+
+  0BSD          https://spdx.org/licenses/0BSD.html
+  AGPL-3.0-only https://spdx.org/licenses/AGPL-3.0-only.html
+  Apache-2.0    https://www.apache.org/licenses/LICENSE-2.0
+  BSD-3-Clause  https://spdx.org/licenses/BSD-3-Clause.html
+  MIT           https://spdx.org/licenses/MIT.html
+  RSALv2        https://redis.io/legal/rsalv2-agreement/
+  SSPL-1.0      https://spdx.org/licenses/SSPL-1.0.html
